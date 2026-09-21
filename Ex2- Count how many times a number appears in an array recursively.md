@@ -13,6 +13,7 @@ To write a Java program to Count how many times a number appears in an array rec
 4.Call the recursive function countOccurrences(arr, index, target) If index == arr.length, return 0 If arr[index] == target, return 1 + countOccurrences(arr, index + 1, target) Else return countOccurrences(arr, index + 1, target)
 
 5.Display the returned count as the total number of occurrences. 
+
 6.End
 
 ## Program:
