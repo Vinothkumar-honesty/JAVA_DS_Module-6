@@ -24,52 +24,73 @@ Developed by: VINOTHKUMAR R
 RegisterNumber:  212224040361
 */
 
-import java.util.Scanner;
+import java.util.*;
 
-public class CountInversions
-{
-    public static int countInversions(int[] arr)
-{
-        int n = arr.length;
-        int count = 0;
-        for (int i = 0; i < n - 1; i++)
-{
-            for (int j = i + 1; j < n; j++)
-{
-                if (arr[i] > arr[j]) {
-                    count++; 
-                }
+public class CountInversions {
+    public static int mergeSortAndCount(int[] arr, int left, int right) 
+    {
+        int c=0;
+        if(left<right){
+            int mid=left+(right-left)/2;
+            c+=mergeSortAndCount(arr,left,mid);
+            c+=mergeSortAndCount(arr,mid+1,right);
+            c+=mergeAndCount(arr,left,mid,right);
+        }
+        return c;
+        
+       
+       
+       
+       
+       
+    }
+
+    private static int mergeAndCount(int[] arr, int left, int mid, int right)
+    {
+        
+        int[] la=Arrays.copyOfRange(arr,left,mid+1);
+        int[] lr=Arrays.copyOfRange(arr,mid+1,right+1);
+        int i=0,j=0,k=left,swap=0;
+        while(i<la.length&&j<lr.length)
+        {
+            if(la[i]<=lr[j])
+            {
+                arr[k++]=la[i++];
+            }else
+            {
+                arr[k++]=lr[j++];
+                swap+=(la.length-i);
             }
         }
-
-        return count;
+        while(i<la.length)
+        {
+            arr[k++]=la[i++];
+        }
+        while(j<lr.length)
+        {
+            arr[k++]=lr[j++];
+        }
+        return swap;
+        
+        
+        
+        
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
-        System.out.print("Enter number of elements: ");
         int n = sc.nextInt();
-
         int[] arr = new int[n];
-
-        System.out.println("Enter " + n + " elements:");
-        for (int i = 0; i < n; i++) {
-            arr[i] = sc.nextInt();
-        }
-
-        int inversions = countInversions(arr);
-
-        System.out.println("Number of inversions in the array: " + inversions);
-
-        sc.close();
+        for (int i = 0; i < n; i++) arr[i] = sc.nextInt();
+        System.out.println(mergeSortAndCount(arr, 0, n - 1));
     }
 }
 ```
 
 ## Output:
 
-<img width="406" height="243" alt="514482539-6c314097-77b6-4f0e-a6ac-6e5e1cc689f4" src="https://github.com/user-attachments/assets/97098684-7b6d-479b-bae7-5df99c9a6a77" />
+<img width="836" height="322" alt="image" src="https://github.com/user-attachments/assets/8b9da93c-21d9-4d56-be97-9bf39a23d11c" />
+
 
 
 ## Result:
