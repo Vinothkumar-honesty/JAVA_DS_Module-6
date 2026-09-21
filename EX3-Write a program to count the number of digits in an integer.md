@@ -45,7 +45,7 @@ public class CountDigitsRecursive {
 
 ## Output:
 
-<img width="341" height="158" alt="515117310-7937432d-e34f-46f6-bfde-6840e7fe8c8f" src="https://github.com/user-attachments/assets/1029b7fb-8fba-441d-a071-08b4f6edc635" />
+<img width="733" height="328" alt="514871770-912ff986-b3d6-4ddf-ad81-ae28ea3a19f5" src="https://github.com/user-attachments/assets/4f5620e3-4e4a-4257-add2-f8333afc5c04" />
 
 
 ## Result:
